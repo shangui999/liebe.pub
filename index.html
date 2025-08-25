@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>欢迎访问本站｜静态首页</title>
+  <meta name="description" content="简洁、合规、健康的静态首页，用于域名备案与基础展示。" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --text: #e5e7eb;      /* gray-200 */
+      --muted: #9ca3af;     /* gray-400 */
+      --brand: #22d3ee;     /* cyan-400 */
+      --brand-2: #60a5fa;   /* blue-400 */
+      --card: #111827cc;    /* translucent */
+      --border: #1f2937;    /* gray-800 */
+      --ok: #34d399;        /* green-400 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Arial, "Noto Color Emoji", "Apple Color Emoji", sans-serif;
+      background: radial-gradient(1200px 600px at 80% -10%, #1f2937 0%, transparent 60%),
+                  radial-gradient(800px 400px at 10% 0%, #0ea5e9 0%, transparent 40%),
+                  linear-gradient(180deg, #0b1220 0%, #0f172a 60%, #0b1220 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 30;
+      backdrop-filter: saturate(140%) blur(10px);
+      background: rgba(15, 23, 42, 0.55);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.5px; }
+    .logo {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: inline-flex; align-items: center; justify-content: center; font-size: 16px; color: #0b1220; font-weight: 900;
+      box-shadow: 0 6px 18px rgba(34, 211, 238, 0.25);
+    }
+    nav ul { list-style: none; display: flex; gap: 18px; padding: 0; margin: 0; }
+    nav a { color: var(--muted); font-size: 14px; padding: 8px 10px; border-radius: 10px; }
+    nav a:hover, nav a:focus { color: var(--text); background: #0b122033; outline: none; }
+
+    /* Hero */
+    .hero { padding: 80px 0 60px; text-align: center; }
+    .badge { display: inline-flex; gap: 8px; align-items: center; padding: 6px 10px; border: 1px solid #1f2937; border-radius: 999px; color: var(--muted); font-size: 12px; background: #0b122033; }
+    h1 { margin: 16px auto 12px; font-size: clamp(28px, 4.8vw, 44px); line-height: 1.15; letter-spacing: 0.3px; }
+    .sub { max-width: 760px; margin: 0 auto; color: var(--muted); font-size: 16px; line-height: 1.8; }
+
+    .cta-row { margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 12px 18px; border-radius: 14px; border: 1px solid var(--border); background: #0b12204d; color: var(--text); font-weight: 600; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1220; border-color: transparent; }
+    .btn:hover { filter: brightness(1.05); transform: translateY(-1px); transition: 160ms ease; }
+
+    /* Sections */
+    section { padding: 64px 0; }
+    .cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 24px; }
+    .card { grid-column: span 12; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 20px; }
+    .card h3 { margin: 8px 0 6px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.75; font-size: 14px; }
+    @media (min-width: 640px) {
+      .card { grid-column: span 6; }
+    }
+    @media (min-width: 980px) {
+      .card { grid-column: span 4; }
+    }
+
+    .about { background: linear-gradient(180deg, rgba(34,211,238,0.06), rgba(96,165,250,0.06)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about .wrap { display: grid; gap: 20px; grid-template-columns: 1fr; }
+    @media (min-width: 900px) {
+      .about .wrap { grid-template-columns: 1.3fr 1fr; align-items: center; }
+    }
+    .about .panel { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 20px; }
+
+    .contact-list { display: grid; gap: 10px; margin-top: 10px; }
+    .contact-item { display: flex; align-items: center; gap: 10px; color: var(--text); }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 12px rgba(52, 211, 153, 0.65); }
+
+    /* Footer */
+    footer { padding: 26px 0 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: center; }
+    @media (min-width: 720px) {
+      .footer-grid { grid-template-columns: 1fr auto; }
+    }
+    .icp a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted #4b5563; }
+    .icp a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="主菜单">
+      <div class="brand" aria-label="站点标识">
+        <span class="logo" aria-hidden="true">站</span>
+        <span>本站｜静态首页</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">主页</a></li>
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#services">服务</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="hero" role="main">
+    <div class="container">
+      <div class="badge" aria-label="页面说明">
+        <span>✔ 合规展示</span>
+        <span>•</span>
+        <span>静态页面</span>
+      </div>
+      <h1>欢迎访问本站</h1>
+      <p class="sub">这是一个简洁、健康、合规的静态首页示例，可用于域名备案与基础信息展示。页面不包含外部依赖，快速加载，适配移动端与桌面端。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#about" aria-label="了解本站">了解本站</a>
+        <a class="btn" href="#contact" aria-label="查看联系方式">联系方式</a>
+      </div>
+    </div>
+  </main>
+
+  <section id="services">
+    <div class="container">
+      <h2>我们提供</h2>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <h3>信息发布</h3>
+          <p>发布规范、积极、健康的内容，传递正向价值，守护良好网络生态。</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>客户支持</h3>
+          <p>通过电子邮箱与我们联系，获取基础咨询与对接支持。</p>
+        </article>
+        <article class="card" role="listitem">
+          <h3>合作沟通</h3>
+          <p>欢迎各类合法合规的合作与咨询，携手为用户创造价值。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="container wrap">
+      <div class="panel">
+        <h2 id="about-title">关于我们</h2>
+        <p>本站坚持合法合规、内容健康、积极向上的原则，仅做基础展示与备案使用。页面结构清晰、易读友好，遵循可访问性与隐私保护的基本要求。</p>
+        <p>如需定制化内容、LOGO 或更多页面（如隐私政策、用户协议、招聘），可在保持合规前提下进行扩展。</p>
+      </div>
+      <div class="panel">
+        <h2>我们的承诺</h2>
+        <ul class="contact-list" aria-label="承诺列表">
+          <li class="contact-item"><span class="dot" aria-hidden="true"></span> 内容健康、合法合规</li>
+          <li class="contact-item"><span class="dot" aria-hidden="true"></span> 尊重用户隐私与数据安全</li>
+          <li class="contact-item"><span class="dot" aria-hidden="true"></span> 简洁、稳定、可持续维护</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>联系我们</h2>
+      <p>如需联系，请发送电子邮件至：<strong>info@example.com</strong>（示例）。</p>
+      <p>地址：<strong>中国 · 内蒙古</strong>（示例）；工作时间：<strong>工作日 9:00–18:00</strong>。</p>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container footer-grid">
+      <div>© 2019–2025 本站保留所有权利</div>
+      <div class="icp" aria-label="备案信息">
+        <a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank" title="工业和信息化部备案管理系统">蒙ICP备19005282号-1</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
